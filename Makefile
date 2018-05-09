@@ -9,6 +9,9 @@ Board.o: Board.cpp Coordination.cpp IllegalCoordinateException.cpp IllegalCharEx
 	$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
 	$(CXX) $(CXXFLAGS) -c Coordination.cpp -o Coordination.o
 	$(CXX) $(CXXFLAGS) -c Status.cpp -o Status.o
+	$(CXX) $(CXXFLAGS) -c IllegalCoordinateException.cpp 
+	$(CXX) $(CXXFLAGS) -c IllegalCharException.cpp 
+	$(CXX) $(CXXFLAGS) -c Symbol.o
 
 clean:
 	rm *.o a.out
