@@ -1,16 +1,26 @@
-CXX=clang++-5.0
-CXXFLAGS=-std=c++17
+CCX=g++ -std=c++11
 
-a.out: main.cpp Board.o Coordination.o Status.o Symbol.o
-	$(CCX) $(CXXFLAGS) main.cpp *.o
 
-Board.o: Board.cpp Coordination.cpp IllegalCoordinateException.cpp IllegalCharException.cpp Board.h Coordination.h Status.h Status.cpp Symbol.o
-	$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
-	$(CXX) $(CXXFLAGS) -c Coordination.cpp -o Coordination.o
-	$(CXX) $(CXXFLAGS) -c Status.cpp -o Status.o
-	$(CXX) $(CXXFLAGS) -c IllegalCoordinateException.cpp 
-	$(CXX) $(CXXFLAGS) -c IllegalCharException.cpp 
-	$(CXX) $(CXXFLAGS) -c Symbol.o
+a.out: Board.o Coordination.o Status.o IllegalCharException.o IllegalCoordinateException.o
+		$(CCX) main.cpp *.o
+		
+Board.o: Board.cpp Board.h
+		$(CCX) -c Board.cpp
+		
+Coordination.o: Coordination.cpp Coordination.h
+		$(CCX) -c Coordination.cpp
+		
+Status.o: Status.cpp Status.h
+		$(CCX) -c Status.cpp
 
-clean:
-	rm *.o a.out
+# Symbol.o: Symbol.h
+# 		$(CCX) -c Symbol.h
+
+IllegalCharException.o: IllegalCharException.cpp
+		$(CCX) -c IllegalCharException.cpp
+
+IllegalCoordinateException.o: IllegalCoordinateException.cpp
+		$(CCX) -c IllegalCoordinateException.cpp
+		
+Clean:
+		rm *.o a.out
