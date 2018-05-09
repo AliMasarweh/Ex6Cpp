@@ -5,12 +5,12 @@ using namespace std;
 
 class IllegalCoordinateException {
   private:
-    const Coordination& c;
+    const Coordination& _coordination;
     
   public:
-	  IllegalCoordinateException(const Coordination& c): c(c) { }
+	  IllegalCoordinateException(const Coordination& illegalCoordination): _coordination(illegalCoordination) { }
       
       string theCoordinate() const{
-          return string(to_string(c.getX()) + "," + to_string(c.getY()));
+          return string(to_string(_coordination.getX()) + "," + to_string(_coordination.getY()));
       }  
 };
