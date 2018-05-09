@@ -5,11 +5,13 @@ Coordination::Coordination(int x, int y) {
 	this->y = y;
 }
 
-Coordination& Coordination::operator= (const Coordination& c) {
-	this->x = c.getX();
-	this->y = c.getY();
+Coordination& Coordination::operator= (const Coordination& otherCoordination) {
+	this->x = otherCoordination.getX();
+	this->y = otherCoordination.getY();
 	return *this;
 }
+
+Coordination::~Coordination() { }
 
 int Coordination::getX() const {
 	return this->x;
@@ -18,5 +20,3 @@ int Coordination::getX() const {
 int Coordination::getY() const {
 	return this->y;
 }
-
-Coordination::~Coordination() { }
