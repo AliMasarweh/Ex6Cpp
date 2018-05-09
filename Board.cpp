@@ -1,7 +1,7 @@
 #include "Board.h"
 
 
-Board::Board(int size) : size(size) {
+Board::Board(int size)  {
 	this->board = new Status*[size];
 	int i;
 	for (i = 0; i < size; i++)
