@@ -1,21 +1,20 @@
 #include <iostream>
+#include "Symbol.h"
 #include "IllegalCharException.cpp"
 
 using namespace std;
 
 class Status {
 private:
-	char status;
+	char c;
 
 public:
 	Status();
-	Status(char status);
-	Status(const Status& status);
-	~Status();
-	char getStatus() const;
-	void setStatus(char status);
-	Status& operator= (const char status);
-	Status& operator= (const Status& status);
+	Status(char c);
+	Status(const Status& dc);
+	Status& operator= (const char c);
+	Status& operator= (const Status& dc);
+	friend ostream& operator<< (ostream& os, const Status& dc);
+
 	operator char() const;
-	friend ostream& operator<< (ostream& os, const Status& status);
 };
