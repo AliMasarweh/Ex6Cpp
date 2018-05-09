@@ -1,20 +1,17 @@
 CXX=clang++-5.0
 CXXFLAGS=-std=c++17
+all:Board.o Coordination.o Status.O
 
-make: main.cpp Board.o Coordination.o Status.o Symbol.o
-	$(CXX) $(CXXFLAGS) main.cpp *.o -o a.out 
-	valgrind --tool=memcheck ./a.out
+Board.o: Board.cpp Board.h Coordination.h Status.h
+$(CXX) $(CXXFLAGS) -c Board.cpp -O Board.O
 
-Board.o: Board.cpp Coordination.cpp IllegalCharException.cpp  IllegalCoordinateException.cpp Board.h Coordination.h Symbol.h Status.h Status.cpp
-	$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
-	$(CXX) $(CXXFLAGS) -c Coordination.cpp -o Coordination.o
-	$(CXX) $(CXXFLAGS) -c Status.cpp -o Status.o
- $(CXX) $(CXXFLAGS) -c IllegalCharException.cpp 
- $(CXX) $(CXXFLAGS) -c IllegalCoordinateException.cpp 
- $(CXX) $(CXXFLAGS) -o Symbol.cpp
+Coordination.o: Coordination.cpp Coordination.h Board.h Status.h
 
+$(CXX) $(CXXFLAGS) -c Coordination.cpp -O Coordination.O
+
+Status.o: Status.cpp Status.h Board.h Coordination.h
+
+$(CXX) $(CXXFLAGS) -c Status.cpp -O Status.O
 
 clean:
-	rm *.o a.out
- 
- 
+ rm*.o a.out
