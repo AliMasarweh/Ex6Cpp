@@ -1,17 +1,17 @@
 CCX=g++ -std=c++11
 
 
-a.out: Board.o Coordinate.o DerivedChar.o IllegalCharException.o IllegalCoordinateException.o
+a.out: Board.o Coordination.o Status.o IllegalCharException.o IllegalCoordinateException.o
 		$(CCX) main.cpp *.o
 		
 Board.o: Board.cpp Board.h
 		$(CCX) -c Board.cpp
 		
-Coordinate.o: Coordinate.cpp Coordinate.h
-		$(CCX) -c Coordinate.cpp
+Coordination.o: Coordination.cpp Coordination.h
+		$(CCX) -c Coordination.cpp
 		
-DerivedChar.o: DerivedChar.cpp DerivedChar.h
-		$(CCX) -c DerivedChar.cpp
+Status.o: Status.cpp Status.h
+		$(CCX) -c Status.cpp
 
 # Symbol.o: Symbol.h
 # 		$(CCX) -c Symbol.h
