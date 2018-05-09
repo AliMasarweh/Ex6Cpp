@@ -10,7 +10,7 @@ class IllegalCoordinateException {
   public:
 	  IllegalCoordinateException(const Coordination& c): c(c) { }
       
-      string theCoordination() const{
+      string theCoordinate() const{
           return string(to_string(c.getX()) + "," + to_string(c.getY()));
       }  
 };
