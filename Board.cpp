@@ -1,57 +1,58 @@
 #include "Board.h"
 
 
-Board::Board(int size) : size(size){
+Board::Board(int size) {
+	this->size = size;
 	this->board = new Status*[size];
 	int i;
 	for (i = 0; i < size; i++)
 		this->board[i] = new Status[size];
 }
 
-Board::Board(const Board& b) {
-	this->size = b.size;
+Board::Board(const Board& newBoard) {
+	this->size = newBoard.size;
 	this->board = new Status*[this->size];
 	int i, j;
 	for (i = 0; i < this->size; i++) {
 		this->board[i] = new Status[this->size];
 		for (j = 0; j < this->size; j++)
-			this->board[i][j] = b.board[i][j];
+			this->board[i][j] = newBoard.board[i][j];
 	}
 }
 
-Board& Board::operator=(const Board& b) {
+Board& Board::operator=(const Board& newBoard) {
 	this->~Board();
-	size = b.size;
+	size = newBoard.size;
 	board = new Status*[size];
 	int i, j;
 	for (i = 0; i < size; i++) {
 		board[i] = new Status[size];
 		for (j = 0; j < size; j++)
-			board[i][j] = b.board[i][j];
+			board[i][j] = newBoard.board[i][j];
 	}
 	return *this;
 }
 
-Board& Board::operator= (const char c) {
-	Status dc(c);
+Board& Board::operator= (const char newStatus) {
+	Status status(newStatus);
 	int i, j;
 	for (i = 0; i < this->size; i++)
 		for (j = 0; j < this->size; j++)
-			this->board[i][j] = dc;
+			this->board[i][j] = status;
 	return *this;
 }
 
-Status& Board::operator[] (const Coordination& c) const {
-	if (c.getX() < size && c.getX() >= 0 && c.getY() < size && c.getY() >= 0)
-		return board[c.getX()][c.getY()];
-	throw IllegalCoordinateException(c);
+Status& Board::operator[] (const Coordination& coordination) const {
+	if (coordination.getX() < size && coordination.getX() >= 0 && coordination.getY() < size && coordination.getY() >= 0)
+		return board[coordination.getX()][coordination.getY()];
+	throw IllegalCoordinateException(coordination);//Invalied coordination
 }
 
-ostream& operator<< (ostream& os, const Board& b) {
+ostream& operator<< (ostream& os, const Board& inserteBoard) {
 	int i, j;
-	for (i = 0; i < b.size; i++) {
-		for (j = 0; j < b.size; j++)
-			os << b.board[i][j];
+	for (i = 0; i < inserteBoard.size; i++) {
+		for (j = 0; j < inserteBoard.size; j++)
+			os << inserteBoard.board[i][j];
 		os << endl;
 	}
 	return os;
