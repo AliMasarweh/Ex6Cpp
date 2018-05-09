@@ -15,11 +15,13 @@ private:
 public:
 	Board(int size);
 	Board(const Board& b);
+	~Board();
+	int Board::getSize() const;
+	void Board::setSize(int newSize);
 	Board& operator=(const Board& b);
 	Board& operator= (const char c);
 	Status& operator[] (const Coordination& c) const;
 	friend ostream& operator<< (ostream& os, const Board& b);
-	~Board();
 };
 
 #endif
