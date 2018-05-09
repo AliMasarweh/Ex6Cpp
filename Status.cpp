@@ -1,6 +1,8 @@
 #include "Status.h"
 
-Status::Status() : status('.') { }
+Status::Status() {
+	this->status = '.';
+}
 
 Status::Status(const char status) {
 	this->operator =(status);
