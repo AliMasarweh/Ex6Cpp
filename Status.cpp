@@ -1,44 +1,43 @@
 #include "Status.h"
 
-Status::Status() : status('.') { }
+Status::Status() : c('.') { }
 
-Status::Status(const char status) {
-	this->operator =(status);
+Status::Status(const char c) {
+	this->operator =(c);
 }
 
-Status::Status(const Status& newStatus) {
-	this->status = newStatus.status;
+Status::Status(const Status& dc) {
+	this->c = dc.c;
 }
 
-Status::~Status() {}
-
-char Status::getStatus() const{
-	return this->status;
-}
-
-void Status::setStatus(const char newStatus) {
-	this->status = newStatus;
-}
-
-Status& Status::operator= (const char newStatus){
-	if (newStatus == '.' || newStatus == 'X' || newStatus == 'y') {
-		setStatus(newStatus);
+Status& Status::operator= (const char c) {
+	switch (c) {
+	case Symbol::X:
+		this->c = c;
+		break;
+	case Symbol::O:
+		this->c = c;
+		break;
+	case Symbol::P:
+		this->c = c;
+		break;
+	default:
+		throw IllegalCharException(c);
+		break;
 	}
-	else
-		throw IllegalCharException(newStatus);//An illegal char is sent
 	return *this;
 }
 
 
-Status& Status::operator= (const Status& newStatus) {
-	this->status = newStatus.status;
+Status& Status::operator= (const Status& dc) {
+	this->c = dc.c;
 	return *this;
+}
+
+ostream& operator<< (ostream& os, const Status& dc) {
+	return os << dc.c;
 }
 
 Status::operator char() const {
-	return getStatus();
-}
-
-ostream& operator<< (ostream& os, const Status& newStatus) {
-	return os << newStatus.status;
+	return c;
 }
