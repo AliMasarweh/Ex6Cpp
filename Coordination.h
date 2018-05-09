@@ -1,11 +1,22 @@
-class Coordination {
-private:
-	int x, y;
+#include "Coordination.h"
 
-public:
-	Coordination(int x, int y);
-	Coordination& operator= (const Coordination& c);
-	int getX() const;
-	int getY() const;
-	~Coordination();
-};
+Coordination::Coordination(int x, int y) {
+	this->x = x;
+	this->y = y;
+}
+
+Coordination& Coordination::operator= (const Coordination& otherCoordination) {
+	this->x = otherCoordination.getX();
+	this->y = otherCoordination.getY();
+	return *this;
+}
+
+Coordination::~Coordination() { }
+
+int Coordination::getX() const {
+	return this->x;
+}
+
+int Coordination::getY() const {
+	return this->y;
+}
