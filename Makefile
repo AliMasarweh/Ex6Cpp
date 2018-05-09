@@ -13,9 +13,6 @@ Coordination.o: Coordination.cpp Coordination.h
 Status.o: Status.cpp Status.h
 		$(CCX) -c Status.cpp
 
-# Symbol.o: Symbol.h
-# 		$(CCX) -c Symbol.h
-
 IllegalCharException.o: IllegalCharException.cpp
 		$(CCX) -c IllegalCharException.cpp
 
