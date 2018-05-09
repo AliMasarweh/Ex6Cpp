@@ -1,3 +1,8 @@
+#pragma once
+#ifndef BOARD_HPP_
+#define BOARD_HPP_
+
+
 #include "Status.h"
 #include "IllegalCoordinateException.cpp"
 
@@ -16,3 +21,5 @@ public:
 	friend ostream& operator<< (ostream& os, const Board& b);
 	~Board();
 };
+
+#endif
