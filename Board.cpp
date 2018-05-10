@@ -50,8 +50,9 @@ Board& Board::operator= (const char newStatus) {
 }
 
 Status& Board::operator[] (const Coordination& coordination) const {
-	if (coordination.getX() < size && coordination.getX() >= 0 && coordination.getY() < size && coordination.getY() >= 0)
-		return board[coordination.getX()][coordination.getY()];
+	if (coordination.getXCoordination() < size && coordination.getXCoordination() >= 0 && 
+			coordination.getYCoordination() < size && coordination.getYCoordination() >= 0)
+		return board[coordination.getXCoordination()][coordination.getYCoordination()];
 	throw IllegalCoordinateException(coordination);//Invalied coordination
 }
 
