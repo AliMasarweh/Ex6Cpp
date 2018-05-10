@@ -16,7 +16,6 @@ public:
 	Board(int size);
 	Board(const Board& newBorad);
 	~Board();
-	char Board::getSize() const;
 	Board& operator=(const Board& newBorad);
 	Board& operator= (const char newChar);
 	Status& operator[] (const Coordination& newChar) const;
