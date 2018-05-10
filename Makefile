@@ -2,7 +2,7 @@ CXX=clang++5.0
 CXXFLAGS=-std=c++17
 all: Board.o Coordination.o Status.o 
 
-Board.o : Board.cpp Board.h Coordination.h Coordination.cpp Status.h Status.cpp
+Board.o : Board.cpp Board.h Coordination.h Status.h
 
 $(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
 
