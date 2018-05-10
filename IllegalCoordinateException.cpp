@@ -11,6 +11,6 @@ class IllegalCoordinateException {
 	  IllegalCoordinateException(const Coordination& illegalCoordination): _coordination(illegalCoordination) { }
       
       string theCoordinate() const{
-          return string(to_string(_coordination.getX()) + "," + to_string(_coordination.getY()));
+          return string(to_string(_coordination.getXCoordination()) + "," + to_string(_coordination.getYCoordination()));
       }  
 };
