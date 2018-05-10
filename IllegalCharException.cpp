@@ -1,10 +1,12 @@
 
 class IllegalCharException {
 private:
-	const char _char;
+	 char _char;
 
 public:
-	IllegalCharException(const char illigalChar) : _char(illigalChar) { }
+	IllegalCharException(const char invalidChar) {
+		_char = invalidChar;
+	}
 
 	const char theChar() const {
 		return this->_char;
