@@ -20,6 +20,13 @@ Board::Board(const Board& newBoard) {
 	}
 }
 
+Board::~Board() {
+	int i;
+	for (i = 0; i< this->size; i++)
+		delete[] board[i];
+	delete[] board;
+}
+
 Board& Board::operator=(const Board& newBoard) {
 	this->~Board();
 	size = newBoard.size;
@@ -28,7 +35,7 @@ Board& Board::operator=(const Board& newBoard) {
 	for (i = 0; i < size; i++) {
 		board[i] = new Status[size];
 		for (j = 0; j < size; j++)
-			board[i][j] = newBoard.board[i][j];
+			this->board[i][j] = newBoard.board[i][j];
 	}
 	return *this;
 }
@@ -56,11 +63,4 @@ ostream& operator<< (ostream& os, const Board& inserteBoard) {
 		os << endl;
 	}
 	return os;
-}
-
-Board::~Board() {
-	int i;
-	for (i = 0; i< this->size; i++)
-		delete[] board[i]; //This part was allocated with new[], so we use delete[]
-	delete[] board;
 }
