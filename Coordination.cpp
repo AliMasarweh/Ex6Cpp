@@ -1,22 +1,22 @@
 #include "Coordination.h"
 
 Coordination::Coordination(int x, int y) {
-	this->x = x;
+	this->x_Coordination = x;
 	this->y = y;
 }
 
 Coordination& Coordination::operator= (const Coordination& otherCoordination) {
-	this->x = otherCoordination.getX();
-	this->y = otherCoordination.getY();
+	this->x_Coordination = otherCoordination.getXCoordination();
+	this->y_Coordination = otherCoordination.getYCoordination();
 	return *this;
 }
 
 Coordination::~Coordination() { }
 
-int Coordination::getX() const {
-	return this->x;
+int Coordination::getXCoordination() const {
+	return this->x_Coordination;
 }
 
-int Coordination::getY() const {
-	return this->y;
+int Coordination::getYCoordination() const {
+	return this->y_Coordination;
 }
