@@ -14,12 +14,13 @@ private:
 
 public:
 	Board(int size);
-	Board(const Board& b);
+	Board(const Board& newBorad);
 	~Board();
-	Board& operator=(const Board& b);
-	Board& operator= (const char c);
-	Status& operator[] (const Coordination& c) const;
-	friend ostream& operator<< (ostream& os, const Board& b);
+	char Board::getSize() const;
+	Board& operator=(const Board& newBorad);
+	Board& operator= (const char newChar);
+	Status& operator[] (const Coordination& newChar) const;
+	friend ostream& operator<< (ostream& os, const Board& newBorad);
 };
 
 #endif
