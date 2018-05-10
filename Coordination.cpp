@@ -1,8 +1,8 @@
 #include "Coordination.h"
 
-Coordination::Coordination(int x, int y) {
-	this->x_Coordination = x;
-	this->y = y;
+Coordination::Coordination(int xCoordination, int yCoordination) {
+	this->x_Coordination = xCoordination;
+	this->y_Coordination = yCoordination;
 }
 
 Coordination& Coordination::operator= (const Coordination& otherCoordination) {
