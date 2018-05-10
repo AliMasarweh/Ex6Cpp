@@ -1,23 +1,18 @@
-CCX=g++ -std=c++11
+CXX=clang++5.0
+CXXFLAGS=-std=c++17
+all: Board.o Coordination.o Status.o 
 
+Board.o : Board.cpp Board.h Coordination.h Coordination.cpp Status.h Status.cpp
 
-a.out: Board.o Coordination.o Status.o IllegalCharException.o IllegalCoordinateException.o
-		$(CCX) main.cpp *.o
-		
-Board.o: Board.cpp Board.h
-		$(CCX) -c Board.cpp
-		
-Coordination.o: Coordination.cpp Coordination.h
-		$(CCX) -c Coordination.cpp
-		
-Status.o: Status.cpp Status.h
-		$(CCX) -c Status.cpp
+$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
 
-IllegalCharException.o: IllegalCharException.cpp
-		$(CCX) -c IllegalCharException.cpp
+Coordination.o : Coordination.cpp Coordination.h Board.h Status.h 
 
-IllegalCoordinateException.o: IllegalCoordinateException.cpp
-		$(CCX) -c IllegalCoordinateException.cpp
-		
-Clean:
-		rm *.o a.out
+$(CXX) $(CXXFLAGS) -c Coordination.cpp -o Coordination.o
+
+Status.o : Status.cpp Status.h Coordination.h Board.h  
+
+$(CXX) $(CXXFLAGS) -c Status.cpp -o Status.o
+
+clean:
+   rm*.o a.out
