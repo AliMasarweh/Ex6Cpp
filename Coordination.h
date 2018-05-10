@@ -4,13 +4,13 @@
 
 class Coordination {
 private:
-	int x, y;
+	int x_Coordination, y_Coordination;
 
 public:
-	Coordination(int x, int y);
+	Coordination(int xCoordination, int yCoordination);
 	~Coordination();
 	Coordination& operator= (const Coordination& otherCoordination);
-	int getX() const;
-	int getY() const;
+	int getXCoordination() const;
+	int getYCoordination() const;
 };
 #endif
