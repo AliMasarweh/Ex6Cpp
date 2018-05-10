@@ -27,6 +27,10 @@ Board::~Board() {
 	delete[] board;
 }
 
+char Board::getSize() const {
+	return this->size;
+}
+
 Board& Board::operator=(const Board& newBoard) {
 	this->~Board();
 	size = newBoard.size;
