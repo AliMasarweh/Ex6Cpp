@@ -44,3 +44,11 @@ Status::operator char() const {
 ostream& operator<< (ostream& os, const Status& newStatus) {
 	return os << newStatus.status;
 }
+
+bool Status::operator != (char stat) {
+	return (this->status != stat);
+}
+
+bool Status::operator == (char stat) {
+	return (this->status == stat);
+}

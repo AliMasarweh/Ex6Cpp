@@ -1,5 +1,10 @@
 #include "Coordination.h"
 
+Coordination::Coordination() {
+	this->x_Coordination = 0;
+	this->y_Coordination = 0;
+}
+
 Coordination::Coordination(int xCoordination, int yCoordination) {
 	this->x_Coordination = xCoordination;
 	this->y_Coordination = yCoordination;
@@ -20,3 +25,12 @@ int Coordination::getXCoordination() const {
 int Coordination::getYCoordination() const {
 	return this->y_Coordination;
 }
+
+void Coordination::setXCoordination(int xCoordination) {
+	this->x_Coordination = xCoordination;
+}
+
+void Coordination::setYCoordination(int yCoordination) {
+	this->y_Coordination = yCoordination;
+}
+
