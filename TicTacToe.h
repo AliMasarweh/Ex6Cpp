@@ -18,7 +18,7 @@ public:
 	const Player& winner() const;
 	friend bool isTriumphal(TicTacToe& tictactoe, Coordination& coordinate,char stat);
 	friend bool isFull(TicTacToe& tictactoe);
-	friend bool TicTacToe::isLegal(TicTacToe& tictactoe, Coordination& coordinate, Board& board);
+	friend bool isLegal(TicTacToe& tictactoe, Coordination& coordinate, Board& board);
 };
 
 #endif
