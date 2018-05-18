@@ -74,6 +74,9 @@ ostream& operator<< (ostream& os, const Board& inserteBoard) {
 	return os;
 }
 
-int Board::size() const{
+unsigned int Board::size() const{
+	return this->sizeOfBoard;
+}
+int Board::BoardSize() const {
 	return this->sizeOfBoard;
 }

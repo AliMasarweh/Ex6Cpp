@@ -3,7 +3,7 @@
 #define PLAYER_HPP_
 
 #include <string>
-#include "uint.h"
+typedef unsigned int uint;
 #include "Board.h"
 
 using namespace std;

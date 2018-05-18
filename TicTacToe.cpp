@@ -69,16 +69,16 @@ bool isTriumphal(TicTacToe& tictactoe,Coordination& Coordination,char stat) {
 	bool triumph_Vertical = 1, triumph_horizontal = 1, triumph_diagonal = 1, triumph_diagonalInvert = 1;
 	if (Coordination.getXCoordination() != Coordination.getYCoordination())
 		triumph_diagonal = 0;
-	if (((tictactoe.shingle).size() - Coordination.getXCoordination() - 1) != Coordination.getYCoordination())
+	if (((tictactoe.shingle).BoardSize() - Coordination.getXCoordination() - 1) != Coordination.getYCoordination())
 		triumph_diagonalInvert = 0;
-	for (int x = 0; x < tictactoe.shingle.size(); ++x) {
+	for (int x = 0; x < tictactoe.shingle.BoardSize(); ++x) {
 		char temp = (tictactoe.shingle)[{x, Coordination.getYCoordination()}];
 		if (temp != CoordinationStatus) {
 			triumph_Vertical = 0;
 			break;
 		}
 	}
-	for (int x = 0;x < tictactoe.shingle.size(); ++x) {
+	for (int x = 0;x < tictactoe.shingle.BoardSize(); ++x) {
 		char temp = (tictactoe.shingle)[{Coordination.getXCoordination(), x}];
 		if (temp != CoordinationStatus) {
 			triumph_horizontal = 0;
@@ -86,7 +86,7 @@ bool isTriumphal(TicTacToe& tictactoe,Coordination& Coordination,char stat) {
 		}
 	}
 	if(triumph_diagonal)
-		for (int x = 0;x < tictactoe.shingle.size(); ++x) {
+		for (int x = 0;x < tictactoe.shingle.BoardSize(); ++x) {
 			char temp = (tictactoe.shingle)[{x,x}];
 			if (temp != CoordinationStatus) {
 				triumph_diagonal = 0;
@@ -94,8 +94,8 @@ bool isTriumphal(TicTacToe& tictactoe,Coordination& Coordination,char stat) {
 			}
 		}
 	if (triumph_diagonalInvert) {
-		int sizeOfB = (tictactoe.shingle).size() - 1;
-		for (int x = 0; x < tictactoe.shingle.size(); ++x) {
+		int sizeOfB = (tictactoe.shingle).BoardSize() - 1;
+		for (int x = 0; x < tictactoe.shingle.BoardSize(); ++x) {
 			int y = sizeOfB - x;
 			char temp = (tictactoe.shingle)[{y,x}];
 			if (temp != CoordinationStatus) {
@@ -111,8 +111,8 @@ bool isTriumphal(TicTacToe& tictactoe,Coordination& Coordination,char stat) {
 /* Returns true if the board is full, else flase.
 */
 bool isFull(TicTacToe& tictactoe) {
-	for (int x = 0; x < tictactoe.shingle.size(); ++x) {
-		for (int y = 0; y < tictactoe.shingle.size(); ++y) {
+	for (int x = 0; x < tictactoe.shingle.BoardSize(); ++x) {
+		for (int y = 0; y < tictactoe.shingle.BoardSize(); ++y) {
 			if ((tictactoe.shingle)[{ x, y }] == '.')
 				return false;
 		}
@@ -127,8 +127,8 @@ bool isFull(TicTacToe& tictactoe) {
 bool isLegal(TicTacToe& tictactoe,Coordination& Coordination, Board& board) {
 	const int x = Coordination.getXCoordination();
 	const int y = Coordination.getYCoordination();
-	int sizeOfBoard = board.size();
-	if (x < 0 || x > sizeOfBoard || y < 0 || y > sizeOfBoard)
+	int BoardSize = board.BoardSize();
+	if (x < 0 || x > BoardSize || y < 0 || y > BoardSize)
 		return false;
 	if ((tictactoe.shingle)[{x, y}] != '.') {
 		return false;

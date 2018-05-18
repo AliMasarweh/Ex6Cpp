@@ -22,7 +22,8 @@ public:
 	Board& operator= (const char newChar);
 	Status& operator[] (const Coordination &newChar) const;
 	friend ostream& operator<< (ostream& os, const Board& newBorad);
-	int size() const;
+	unsigned int size() const;
+	int BoardSize() const;
 };
 
 #endif
