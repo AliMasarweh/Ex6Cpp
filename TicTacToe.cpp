@@ -55,6 +55,7 @@ const Board& TicTacToe::play(Player& p1, Player& p2) {
 		}
 	} while (!isFull(*this));
 	this->victorious = &p2;
+	this->victorious->setName("TiePlayer");
 	return this->shingle;
 }
 
