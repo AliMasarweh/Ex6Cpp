@@ -21,3 +21,8 @@ const char Player::getChar() const {
 void Player::setStatus(char XorO) {
 	this->myChar.setStatus(XorO);
 }
+
+
+void Player::setName(string name) {
+	this->_name = name;
+}
