@@ -20,6 +20,7 @@ public:
 	Player(const Status& XorO);
 	const char getChar() const;
 	void setStatus(char XorO);
+	void setName(string name);
 	virtual const string name() const = 0;
 	virtual const Coordination play(const Board& board) = 0;
 };
